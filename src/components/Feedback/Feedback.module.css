@@ -1,0 +1,18 @@
+.sendSection {
+  /* display: flex;
+  flex-direction: column; */
+}
+.buttonSection {
+  display: flex;
+  /* flex-direction: column; */
+  gap: 10px;
+}
+.buttonSection button {
+  background-color: aliceblue;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.receiveSection {
+}
