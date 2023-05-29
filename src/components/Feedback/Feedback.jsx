@@ -32,9 +32,10 @@ export default class Feedback extends Component {
   };
   // ##############################################
   countTotalFeedback = () => {
-    this.setState(currState =>
-      Object.values(currState).reduce((total, curEl) => (total += curEl), 0)
+      const ress = Object.values(this.state).reduce((total, curEl) => (total += curEl), 0)
     );
+			alert(ress);
+
   };
   // **********************************************
   countPositiveFeedbackPercentage = () => {};
