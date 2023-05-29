@@ -42,7 +42,7 @@ export default class Feedback extends Component {
   // ##############################################
   render() {
     const { good, neutral, bad } = this.state;
-    // this.countTotalFeedback();
+    this.countTotalFeedback();
     return (
       <div>
         <div className={css.sendSection}>
