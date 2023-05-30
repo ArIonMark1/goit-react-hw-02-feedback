@@ -36,6 +36,7 @@ export default class Feedback extends Component {
       (total, curEl) => (total += curEl),
       0
     );
+    alert(ress);
   };
   // **********************************************
   countPositiveFeedbackPercentage = () => {
@@ -56,8 +57,7 @@ export default class Feedback extends Component {
   // ##############################################
   render() {
     const { good, neutral, bad } = this.state;
-    // const totalSum = good + neutral + bad; // як що не вимахуватись із функціями. Швидке рішення.
-
+    // this.countTotalFeedback();
     return (
       <div className={css.containerContent}>
         <div className={css.sendSection}>
