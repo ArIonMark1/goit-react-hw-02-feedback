@@ -6,8 +6,6 @@ import FeedbackOptions from './FeedbackOptions';
 import Statistics from './Statistics';
 import Notification from './Notification';
 
-import Feedback from './Feedback';
-
 export default class App extends React.Component {
   state = {
     good: 0,
@@ -64,7 +62,6 @@ export default class App extends React.Component {
 
     return (
       <div className={css.app}>
-        {/* <Feedback /> */}
         <div className={css.containerContent}>
           <Section title="Feedback">
             <FeedbackOptions
