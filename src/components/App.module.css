@@ -1,8 +1,19 @@
 .app {
   height: 100vh;
   display: flex;
+
+  gap: 50px;
   justify-content: center;
   align-items: center;
   font-size: 30px;
   color: #010101;
+}
+.containerContent {
+  /* border: 2px dashed rgb(160, 159, 159); */
+  background-color: #6c7884;
+  box-shadow: 2px 0px 50px 10px #a8bdd4 inset;
+  border-radius: 5px;
+  color: #ffffff;
+  width: 380px;
+  padding: 50px;
 }

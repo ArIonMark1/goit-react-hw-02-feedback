@@ -32,18 +32,34 @@ export default class Feedback extends Component {
   };
   // ##############################################
   countTotalFeedback = () => {
-    this.setState(currState =>
-      Object.values(currState).reduce((total, curEl) => (total += curEl), 0)
+    return Object.values(this.state).reduce(
+      (total, curEl) => (total += curEl),
+      0
     );
   };
   // **********************************************
-  countPositiveFeedbackPercentage = () => {};
+  countPositiveFeedbackPercentage = () => {
+    const totalRequests = this.countTotalFeedback();
+    const { good: goodRequests } = this.state;
+
+    if (!totalRequests) {
+      return 0;
+    } // щоб не повертало NaN коли нічого рахувати
+    const positivePercent =
+      ((goodRequests - totalRequests) / totalRequests) * 100 + 100;
+
+    if (String(positivePercent).length <= 5) {
+      return positivePercent;
+    }
+    return positivePercent.toFixed(2);
+  };
   // ##############################################
   render() {
     const { good, neutral, bad } = this.state;
-    // this.countTotalFeedback();
+    // const totalSum = good + neutral + bad; // як що не вимахуватись із функціями. Швидке рішення.
+
     return (
-      <div>
+      <div className={css.containerContent}>
         <div className={css.sendSection}>
           <h2>Feedback</h2>
           <div className={css.buttonSection} onClick={this.raitingCounter}>
@@ -64,7 +80,7 @@ export default class Feedback extends Component {
           <p>Neutral: {neutral}</p>
           <p>Bad: {bad}</p>
           <p>Total: {this.countTotalFeedback()}</p>
-          <p>Positive feedback: {bad}</p>
+          <p>Positive feedback: {this.countPositiveFeedbackPercentage()} %</p>
         </div>
       </div>
     );
