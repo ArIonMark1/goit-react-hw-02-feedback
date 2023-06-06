@@ -13,6 +13,8 @@ export default class App extends React.Component {
     bad: 0,
   };
   raitingCounter = evt => {
+    // const { name, value } = evt.target;
+    // this.setState({ [name]: value }); ???
     switch (evt.target.name) {
       case 'good':
         this.setState(prevState => {
@@ -58,7 +60,6 @@ export default class App extends React.Component {
   render() {
     const { good, neutral, bad } = this.state;
     const totalRequests = this.countTotalFeedback();
-    console.log('Total: ', totalRequests, ':', typeof totalRequests);
 
     return (
       <div className={css.app}>
