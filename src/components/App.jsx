@@ -13,28 +13,9 @@ export default class App extends React.Component {
     bad: 0,
   };
   raitingCounter = evt => {
-    // const { name, value } = evt.target;
-    // this.setState({ [name]: value }); ???
-    switch (evt.target.name) {
-      case 'good':
-        this.setState(prevState => {
-          return { good: prevState.good + 1 };
-        });
-        break;
-      case 'neutral':
-        this.setState(prevState => {
-          return { neutral: prevState.neutral + 1 };
-        });
-        break;
-      case 'bad':
-        this.setState(prevState => {
-          return { bad: prevState.bad + 1 };
-        });
-        break;
-      default:
-        console.log('Wrong action!');
-        break;
-    }
+    const { name } = evt.target;
+
+    this.setState({ [name]: this.state[name] + 1 }); // змінив свіча на цей варіант
   };
   countTotalFeedback = () => {
     return Object.values(this.state).reduce(
